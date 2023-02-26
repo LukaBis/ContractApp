@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
+use App\Models\Contract;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,10 @@ use Illuminate\Support\Facades\Http;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $allContracts = Contract::select("id", "invested_amount","currency","created_at")->get();
+    return view('home', compact('allContracts'));
+})->name('home');
+
+Route::view('/contract', 'contract')->name('contract-chart');
 
 Route::resource('contract', \App\Http\Controllers\ContractController::class)->only('show');
