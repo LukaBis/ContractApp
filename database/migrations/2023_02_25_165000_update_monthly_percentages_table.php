@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('monthly_percentages', function (Blueprint $table) {
-            $table->float('usd_ratio')->nullable();
+            $table->float('usd_ratio');
         });
     }
 
