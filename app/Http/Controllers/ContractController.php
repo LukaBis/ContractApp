@@ -25,6 +25,7 @@ class ContractController extends Controller
                 'month' => $monthlyPercentage->month,
                 'percentage' => $monthlyPercentage->percentage,
                 'value' => $newValue,
+                'valueInUsd' => round($newValue * $monthlyPercentage->usd_ratio, 2)
             ]);
 
             return $carry;
