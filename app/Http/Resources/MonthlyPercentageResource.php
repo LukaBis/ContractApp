@@ -18,6 +18,7 @@ class MonthlyPercentageResource extends JsonResource
             'month' => $this->month,
             'percentage' => $this->percentage,
             'value' => $this->value,
+            'value_in_usd' => $this->valueInUsd
         ];
     }
 }
